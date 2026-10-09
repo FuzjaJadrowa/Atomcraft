@@ -1,6 +1,6 @@
 ---
 name: Bug Report
-about: Report a bug or crash to help us improve Example Mod.
+about: Report a bug or crash to help us improve Atomcraft.
 title: ''
 labels: bug
 assignees: ''
@@ -20,7 +20,6 @@ assignees: ''
 ## Environment
 * **Minecraft version:** [e.g. 1.21.1]
 * **Mod version:** [e.g. 1.0.0]
-* **Platform:** [e.g. NeoForge, Fabric]
 
 ## Minecraft logs
 ```text

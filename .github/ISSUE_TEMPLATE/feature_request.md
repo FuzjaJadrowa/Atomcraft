@@ -1,6 +1,6 @@
 ---
 name: Feature Request
-about: Suggest an idea, enhancement, or new feature for Example Mod.
+about: Suggest an idea, enhancement, or new feature for Atomcraft.
 title: ''
 labels: enhancement
 assignees: ''

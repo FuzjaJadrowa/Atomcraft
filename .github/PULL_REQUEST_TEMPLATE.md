@@ -2,11 +2,6 @@
 
 Describe what this pull request changes.
 
-## Scope
-
-- [ ] Fabric
-- [ ] NeoForge
-
 ## Changes
 
 - 

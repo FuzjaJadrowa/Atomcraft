@@ -3,12 +3,12 @@ plugins {
     id("net.neoforged.moddev") version "2.0.141"
 }
 
-val mod_id: String by project
-val mod_version: String by project
-val mod_group_id: String by project
-val neo_version: String by project
-val mod_name: String by project
-val minecraft_version: String by project
+val mod_id = providers.gradleProperty("mod_id").get()
+val mod_version = providers.gradleProperty("mod_version").get()
+val mod_group_id = providers.gradleProperty("mod_group_id").get()
+val neo_version = providers.gradleProperty("neo_version").get()
+val mod_name = providers.gradleProperty("mod_name").get()
+val minecraft_version = providers.gradleProperty("minecraft_version").get()
 
 group = mod_group_id
 version = mod_version
@@ -29,8 +29,8 @@ neoForge {
     version = neo_version
 
     parchment {
-        mappingsVersion = project.property("parchment_mappings_version").toString()
-        minecraftVersion = project.property("parchment_minecraft_version").toString()
+        mappingsVersion = providers.gradleProperty("parchment_mappings_version").get()
+        minecraftVersion = providers.gradleProperty("parchment_minecraft_version").get()
     }
 
     runs {
@@ -58,14 +58,14 @@ neoForge {
 tasks.withType<ProcessResources>().configureEach {
     val replaceProperties = mapOf(
         "mod_id" to mod_id,
-        "mod_name" to project.property("mod_name"),
+        "mod_name" to mod_name,
         "mod_version" to mod_version,
-        "mod_description" to project.property("mod_description"),
-        "mod_authors" to project.property("mod_authors"),
-        "mod_license" to project.property("mod_license"),
-        "minecraft_version_range" to project.property("minecraft_version_range"),
-        "neo_version_range" to project.property("neo_version_range"),
-        "loader_version_range" to project.property("loader_version_range")
+        "mod_description" to providers.gradleProperty("mod_description").get(),
+        "mod_authors" to providers.gradleProperty("mod_authors").get(),
+        "mod_license" to providers.gradleProperty("mod_license").get(),
+        "minecraft_version_range" to providers.gradleProperty("minecraft_version_range").get(),
+        "neo_version_range" to providers.gradleProperty("neo_version_range").get(),
+        "loader_version_range" to providers.gradleProperty("loader_version_range").get()
     )
     inputs.properties(replaceProperties)
 

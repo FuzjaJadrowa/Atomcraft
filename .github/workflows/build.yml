@@ -1,10 +1,8 @@
-name: Build NeoForge Mod
+name: Build
 
-# on:
-#   push:
-#     branches: [ "neoforge" ]
-#   pull_request:
-#     branches: [ "neoforge" ]
+on:
+   push:
+   pull_request:
 
 jobs:
   build:
@@ -27,5 +25,5 @@ jobs:
     - name: Upload Build Artifact
       uses: actions/upload-artifact@v4
       with:
-        name: ExampleMod-NeoForge-JAR
+        name: Atomcraft-JAR
         path: build/libs/*.jar
