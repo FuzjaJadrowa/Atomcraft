@@ -28,11 +28,6 @@ tasks.jar {
 neoForge {
     version = neo_version
 
-    parchment {
-        mappingsVersion = providers.gradleProperty("parchment_mappings_version").get()
-        minecraftVersion = providers.gradleProperty("parchment_minecraft_version").get()
-    }
-
     runs {
         configureEach {
             systemProperty("forge.logging.markers", "REGISTRIES")

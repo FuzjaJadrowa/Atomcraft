@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:blasting",
+  "category": "misc",
+  "ingredient": {
+    "item": "atomcraft:raw_uranium"
+  },
+  "result": {
+    "id": "atomcraft:uranium_ingot"
+  },
+  "experience": 0.0,
+  "cookingtime": 100
+}

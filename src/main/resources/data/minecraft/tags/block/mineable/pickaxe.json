@@ -1,0 +1,10 @@
+{
+  "replace": false,
+  "values": [
+    "atomcraft:uranium_ore",
+    "atomcraft:deepslate_uranium_ore",
+    "atomcraft:generator",
+    "atomcraft:crusher",
+    "atomcraft:electric_furnace"
+  ]
+}

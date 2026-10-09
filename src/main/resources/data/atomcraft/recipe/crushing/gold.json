@@ -1,0 +1,11 @@
+{
+  "type": "atomcraft:machine",
+  "machine": "crusher",
+  "ingredient": {
+    "item": "minecraft:raw_gold"
+  },
+  "result": {
+    "id": "atomcraft:gold_dust",
+    "count": 2
+  }
+}

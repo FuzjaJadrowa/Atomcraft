@@ -1,0 +1,7 @@
+{
+  "variants": {
+    "": {
+      "model": "atomcraft:block/uranium_ore"
+    }
+  }
+}

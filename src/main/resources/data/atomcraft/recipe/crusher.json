@@ -1,0 +1,30 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "ICI",
+    "RMR",
+    "IFI"
+  ],
+  "key": {
+    "I": {
+      "item": "minecraft:iron_ingot"
+    },
+    "C": {
+      "item": "atomcraft:basic_circuit"
+    },
+    "R": {
+      "item": "minecraft:redstone"
+    },
+    "M": {
+      "item": "atomcraft:machine_casing"
+    },
+    "F": {
+      "item": "minecraft:iron_pickaxe"
+    }
+  },
+  "result": {
+    "id": "atomcraft:crusher",
+    "count": 1
+  }
+}

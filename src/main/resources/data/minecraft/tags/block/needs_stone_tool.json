@@ -1,0 +1,8 @@
+{
+  "replace": false,
+  "values": [
+    "atomcraft:generator",
+    "atomcraft:crusher",
+    "atomcraft:electric_furnace"
+  ]
+}
