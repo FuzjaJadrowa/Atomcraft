@@ -1,4 +1,4 @@
-package pl.fuzjajadrowa.atomcraft;
+package pl.fuzjajadrowa.atomcraft.config;
 
 import net.neoforged.neoforge.common.ModConfigSpec;
 

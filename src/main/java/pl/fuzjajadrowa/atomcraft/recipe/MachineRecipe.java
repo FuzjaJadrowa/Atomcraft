@@ -1,4 +1,7 @@
-package pl.fuzjajadrowa.atomcraft;
+package pl.fuzjajadrowa.atomcraft.recipe;
+
+import pl.fuzjajadrowa.atomcraft.registry.AtomcraftRecipeTypes;
+import pl.fuzjajadrowa.atomcraft.registry.AtomcraftRecipeSerializers;
 
 import com.mojang.serialization.MapCodec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
@@ -14,8 +17,8 @@ public record MachineRecipe(String machine, Ingredient ingredient, ItemStack res
     @Override public ItemStack assemble(SingleRecipeInput input, HolderLookup.Provider registries) { return result.copy(); }
     @Override public boolean canCraftInDimensions(int width, int height) { return width * height >= 1; }
     @Override public ItemStack getResultItem(HolderLookup.Provider registries) { return result; }
-    @Override public RecipeSerializer<?> getSerializer() { return ModContent.MACHINE_SERIALIZER.get(); }
-    @Override public RecipeType<?> getType() { return ModContent.MACHINE_RECIPE.get(); }
+    @Override public RecipeSerializer<?> getSerializer() { return AtomcraftRecipeSerializers.MACHINE.get(); }
+    @Override public RecipeType<?> getType() { return AtomcraftRecipeTypes.MACHINE.get(); }
     @Override public boolean isSpecial() { return true; }
 
     public static final class Serializer implements RecipeSerializer<MachineRecipe> {

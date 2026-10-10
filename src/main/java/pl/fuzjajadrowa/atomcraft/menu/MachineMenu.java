@@ -1,4 +1,9 @@
-package pl.fuzjajadrowa.atomcraft;
+package pl.fuzjajadrowa.atomcraft.menu;
+
+import pl.fuzjajadrowa.atomcraft.registry.AtomcraftBlocks;
+import pl.fuzjajadrowa.atomcraft.registry.AtomcraftMenus;
+import pl.fuzjajadrowa.atomcraft.block.MachineKind;
+import pl.fuzjajadrowa.atomcraft.block.entity.MachineBlockEntity;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.network.RegistryFriendlyByteBuf;
@@ -24,7 +29,7 @@ public final class MachineMenu extends AbstractContainerMenu {
         this(id, inventory, machine.kind(), machine.inventory(), machine.data(), ContainerLevelAccess.create(machine.getLevel(), machine.getBlockPos()));
     }
     private MachineMenu(int id, Inventory inventory, MachineKind kind, ItemStackHandler items, ContainerData data, ContainerLevelAccess access) {
-        super(ModContent.MACHINE_MENU.get(), id);
+        super(AtomcraftMenus.MACHINE.get(), id);
         this.kind = kind; this.data = data; this.access = access;
         checkContainerDataCount(data, 6);
         addSlot(new SlotItemHandler(items, 0, 56, 35) {
@@ -39,7 +44,7 @@ public final class MachineMenu extends AbstractContainerMenu {
     public int value(int index) { return data.get(index); }
     @Override public boolean stillValid(Player player) {
         return stillValid(access, player, switch (kind) {
-            case GENERATOR -> ModContent.GENERATOR.get(); case CRUSHER -> ModContent.CRUSHER.get(); case ELECTRIC_FURNACE -> ModContent.ELECTRIC_FURNACE.get();
+            case GENERATOR -> AtomcraftBlocks.GENERATOR.get(); case CRUSHER -> AtomcraftBlocks.CRUSHER.get(); case ELECTRIC_FURNACE -> AtomcraftBlocks.ELECTRIC_FURNACE.get();
         });
     }
     @Override public ItemStack quickMoveStack(Player player, int index) {

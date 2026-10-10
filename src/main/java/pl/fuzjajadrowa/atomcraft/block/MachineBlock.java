@@ -1,4 +1,7 @@
-package pl.fuzjajadrowa.atomcraft;
+package pl.fuzjajadrowa.atomcraft.block;
+
+import pl.fuzjajadrowa.atomcraft.registry.AtomcraftBlockEntities;
+import pl.fuzjajadrowa.atomcraft.block.entity.MachineBlockEntity;
 
 import com.mojang.serialization.MapCodec;
 import net.minecraft.core.BlockPos;
@@ -35,7 +38,7 @@ public final class MachineBlock extends BaseEntityBlock {
     @Override protected RenderShape getRenderShape(BlockState state) { return RenderShape.MODEL; }
     @Override public BlockEntity newBlockEntity(BlockPos pos, BlockState state) { return new MachineBlockEntity(pos, state); }
     @Override public <T extends BlockEntity> BlockEntityTicker<T> getTicker(Level level, BlockState state, BlockEntityType<T> type) {
-        return level.isClientSide ? null : createTickerHelper(type, ModContent.MACHINE_ENTITY.get(), MachineBlockEntity::tick);
+        return level.isClientSide ? null : createTickerHelper(type, AtomcraftBlockEntities.MACHINE.get(), MachineBlockEntity::tick);
     }
     @Override protected MenuProvider getMenuProvider(BlockState state, Level level, BlockPos pos) {
         return level.getBlockEntity(pos) instanceof MachineBlockEntity machine ? machine : null;

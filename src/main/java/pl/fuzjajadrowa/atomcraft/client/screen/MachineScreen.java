@@ -1,11 +1,14 @@
-package pl.fuzjajadrowa.atomcraft.client;
+package pl.fuzjajadrowa.atomcraft.client.screen;
+
+import pl.fuzjajadrowa.atomcraft.block.MachineKind;
+import pl.fuzjajadrowa.atomcraft.menu.MachineMenu;
+import pl.fuzjajadrowa.atomcraft.Atomcraft;
 
 import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.client.gui.screens.inventory.AbstractContainerScreen;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.player.Inventory;
-import pl.fuzjajadrowa.atomcraft.*;
 
 public final class MachineScreen extends AbstractContainerScreen<MachineMenu> {
     public MachineScreen(MachineMenu menu, Inventory inventory, Component title) {

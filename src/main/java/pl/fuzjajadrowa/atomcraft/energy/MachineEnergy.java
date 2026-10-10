@@ -1,9 +1,8 @@
-package pl.fuzjajadrowa.atomcraft;
+package pl.fuzjajadrowa.atomcraft.energy;
 
 import java.util.function.IntSupplier;
 import net.neoforged.neoforge.energy.IEnergyStorage;
 
-/** External FE permissions are independent of internal production/consumption. */
 public final class MachineEnergy implements IEnergyStorage {
     private final boolean generator;
     private final IntSupplier capacity, transfer;

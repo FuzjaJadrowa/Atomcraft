@@ -1,4 +1,12 @@
-package pl.fuzjajadrowa.atomcraft;
+package pl.fuzjajadrowa.atomcraft.block.entity;
+
+import pl.fuzjajadrowa.atomcraft.registry.AtomcraftBlockEntities;
+import pl.fuzjajadrowa.atomcraft.registry.AtomcraftRecipeTypes;
+import pl.fuzjajadrowa.atomcraft.config.AtomcraftConfig;
+import pl.fuzjajadrowa.atomcraft.block.MachineKind;
+import pl.fuzjajadrowa.atomcraft.block.MachineBlock;
+import pl.fuzjajadrowa.atomcraft.energy.MachineEnergy;
+import pl.fuzjajadrowa.atomcraft.menu.MachineMenu;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -42,7 +50,7 @@ public final class MachineBlockEntity extends BlockEntity implements MenuProvide
     };
 
     public MachineBlockEntity(BlockPos pos, BlockState state) {
-        super(ModContent.MACHINE_ENTITY.get(), pos, state);
+        super(AtomcraftBlockEntities.MACHINE.get(), pos, state);
         kind = ((MachineBlock) state.getBlock()).kind();
         energy = new MachineEnergy(kind == MachineKind.GENERATOR,
                 () -> kind == MachineKind.GENERATOR ? AtomcraftConfig.GENERATOR_CAPACITY.get() : AtomcraftConfig.MACHINE_CAPACITY.get(),
@@ -82,7 +90,6 @@ public final class MachineBlockEntity extends BlockEntity implements MenuProvide
         return burning;
     }
 
-    /** Share the budget first; then redistribute unused shares. Rotate rounding priority. */
     private void distributeEnergy() {
         int budget = Math.min(energy.getEnergyStored(), AtomcraftConfig.GENERATOR_TRANSFER.get());
         if (budget == 0) return;
@@ -117,8 +124,7 @@ public final class MachineBlockEntity extends BlockEntity implements MenuProvide
     private Process findProcess(ItemStack input) {
         if (input.isEmpty()) return null;
         SingleRecipeInput recipeInput = new SingleRecipeInput(input);
-        // Stable priority when multiple datapack recipes match the same input.
-        var custom = level.getRecipeManager().getAllRecipesFor(ModContent.MACHINE_RECIPE.get()).stream()
+        var custom = level.getRecipeManager().getAllRecipesFor(AtomcraftRecipeTypes.MACHINE.get()).stream()
                 .filter(holder -> holder.value().machine().equals(kind.id) && holder.value().matches(recipeInput, level))
                 .sorted(java.util.Comparator.comparing(holder -> holder.id().toString())).findFirst();
         int defaultTime = kind == MachineKind.CRUSHER ? AtomcraftConfig.CRUSHER_TIME.get() : AtomcraftConfig.FURNACE_TIME.get();
@@ -147,7 +153,6 @@ public final class MachineBlockEntity extends BlockEntity implements MenuProvide
             processRecipe = process.id; duration = process.ticks;
             setChanged();
         }
-        // Blocked output takes precedence over loss of power: paused progress is preserved.
         if (!fitsOutput(process.result)) return false;
         int cost = AtomcraftConfig.MACHINE_RATE.get();
         if (energy.getEnergyStored() < cost) {

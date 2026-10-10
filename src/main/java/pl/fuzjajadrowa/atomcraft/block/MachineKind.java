@@ -1,4 +1,4 @@
-package pl.fuzjajadrowa.atomcraft;
+package pl.fuzjajadrowa.atomcraft.block;
 
 public enum MachineKind {
     GENERATOR("generator"), CRUSHER("crusher"), ELECTRIC_FURNACE("electric_furnace");
