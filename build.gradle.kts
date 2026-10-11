@@ -9,6 +9,12 @@ val mod_group_id = providers.gradleProperty("mod_group_id").get()
 val neo_version = providers.gradleProperty("neo_version").get()
 val mod_name = providers.gradleProperty("mod_name").get()
 val minecraft_version = providers.gradleProperty("minecraft_version").get()
+val build_number = providers.environmentVariable("GITHUB_RUN_NUMBER")
+    .orElse(providers.gradleProperty("build_number"))
+    .orElse("0")
+    .get()
+
+require(build_number.matches(Regex("[0-9]+"))) { "Build number must contain only digits: $build_number" }
 
 group = mod_group_id
 version = mod_version
@@ -22,7 +28,7 @@ java {
 }
 
 tasks.jar {
-    archiveFileName.set("$mod_name-$mod_version+$minecraft_version.jar")
+    archiveFileName.set("$mod_name-$mod_version+$minecraft_version-build.$build_number.jar")
 }
 
 neoForge {
