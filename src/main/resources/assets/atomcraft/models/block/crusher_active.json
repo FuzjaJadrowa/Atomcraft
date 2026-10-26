@@ -4,6 +4,6 @@
     "top": "atomcraft:block/machine_top",
     "bottom": "atomcraft:block/machine_bottom",
     "side": "atomcraft:block/machine_side",
-    "front": "atomcraft:block/crusher_front_active"
+    "front": "atomcraft:block/crusher_top_active"
   }
 }

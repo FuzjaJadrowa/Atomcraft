@@ -24,7 +24,7 @@ public final class MachineScreen extends AbstractContainerScreen<MachineMenu> {
             if (flame > 0) graphics.blit(texture("burn_fill"), leftPos + 80, topPos + 49 - flame, 0, 14 - flame, 14, flame, 14, 14);
         } else {
             int width = scaled(menu.value(2), menu.value(3), 24);
-            if (width > 0) graphics.blit(texture("progress_fill"), leftPos + 79, topPos + 34, 0, 0, width, 17, 24, 17);
+            if (width > 0) graphics.blit(texture("progress_fill"), leftPos + 76, topPos + 34, 0, 0, width, 17, 24, 17);
         }
     }
     private static int scaled(int value, int total, int size) { return total <= 0 ? 0 : (int) Math.clamp((long) value * size / total, 0, size); }

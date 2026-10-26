@@ -32,10 +32,10 @@ public final class MachineMenu extends AbstractContainerMenu {
         super(AtomcraftMenus.MACHINE.get(), id);
         this.kind = kind; this.data = data; this.access = access;
         checkContainerDataCount(data, 6);
-        addSlot(new SlotItemHandler(items, 0, 56, 35) {
+        addSlot(new SlotItemHandler(items, 0, 50, 35) {
             @Override public boolean mayPlace(ItemStack stack) { return kind != MachineKind.GENERATOR || stack.getBurnTime(RecipeType.SMELTING) > 0; }
         });
-        addSlot(new SlotItemHandler(items, 1, 116, 35) { @Override public boolean mayPlace(ItemStack stack) { return false; } });
+        addSlot(new SlotItemHandler(items, 1, 110, 35) { @Override public boolean mayPlace(ItemStack stack) { return false; } });
         for (int row = 0; row < 3; row++) for (int column = 0; column < 9; column++)
             addSlot(new Slot(inventory, column + row * 9 + 9, 8 + column * 18, 84 + row * 18));
         for (int column = 0; column < 9; column++) addSlot(new Slot(inventory, column, 8 + column * 18, 142));
