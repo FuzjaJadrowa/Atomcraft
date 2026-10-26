@@ -1,0 +1,16 @@
+{
+  "itemGroup.atomcraft": "AtomCraft",
+  "block.atomcraft.uranium_ore": "Ruda uranu",
+  "block.atomcraft.deepslate_uranium_ore": "Łupkowa ruda uranu",
+  "block.atomcraft.generator": "Generator spalający",
+  "block.atomcraft.crusher": "Kruszarka",
+  "block.atomcraft.electric_furnace": "Piec elektryczny",
+  "item.atomcraft.raw_uranium": "Surowy uran",
+  "item.atomcraft.uranium_dust": "Pył uranu",
+  "item.atomcraft.uranium_ingot": "Sztabka uranu",
+  "item.atomcraft.iron_dust": "Pył żelaza",
+  "item.atomcraft.copper_dust": "Pył miedzi",
+  "item.atomcraft.gold_dust": "Pył złota",
+  "item.atomcraft.basic_circuit": "Prosty obwód",
+  "item.atomcraft.machine_casing": "Obudowa maszyny"
+}
